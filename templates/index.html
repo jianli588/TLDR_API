@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>TLDR Bot</title>
+</head>
+<body>
+    <form class ="form-template" action = "/result" method = "POST">
+        <center>
+            <label for = "url-input">Please provide a URL from CNN</label>
+            <input id = "url-input" name = "url-input" type="text">
+            <input type="submit" value="Submit">
+        </center>
+
+
+    </form>
+        <container class="container" style="width:800px">
+        {% block content %}
+          {% for item in sentence_list %}
+            <label class="sentence-label">
+                {{ item }}
+            </label>
+            <br>
+            <br>
+            <br>
+          {% endfor %}
+        {% endblock content %}
+        </container>
+
+</body>
+</html>
